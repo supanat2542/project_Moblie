@@ -2,7 +2,27 @@
     <ons-navigator swipeable id="myNavigator-Setting" page="Settingp.html"></ons-navigator>
     <template id="Settingp.html">
         <ons-page>
-            <h1>kan 5</h1>
+            <ons-list>
+                <ons-list-header>Profile</ons-list-header>
+                <ons-list-item>
+                  <div class="left">
+                    <img src="/pix/m1_cover.jpg" class="novel" height="50px">
+                  </div>
+                  <div class="center">
+                    <span class="list-item__title">Supanat</span>
+                  </div>
+                </ons-list-item>
+
+                <ons-list-header>Darkmode</ons-list-header>
+                <ons-list-item>
+                  <div class="center">
+                    Darkmode
+                  </div>
+                  <div class="right">
+                    <ons-switch></ons-switch>
+                  </div>
+                </ons-list-item>
+              </ons-list>
         </ons-page>
     </template>
 </ons-page>

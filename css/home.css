@@ -1,0 +1,28 @@
+.novel{
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(250, 50, 50);
+    border-radius: 20px;
+}
+.comic{
+    border-style: solid;
+    border-width: 5px;
+    border-color: orange;
+    border-radius: 20px;
+}
+.profile{
+    width: 50px;
+    height: 50px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    border-radius: 100px;
+}
+.logout{
+    border-style: solid;
+    border-width: 5px;
+    border-color: red;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+}
