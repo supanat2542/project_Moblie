@@ -4,67 +4,12 @@
         <ons-page>
             <ons-list>
                     <p style="text-align: center; margin-top: 10px;">
-                      <ons-search-input
-                        placeholder="Search"
-                      ></ons-search-input>
+                      <ons-search-input id="searchBook" placeholder="Search"></ons-search-input>
+                      <ons-button onclick="getSearch()">Default</ons-button>
                     </p>
             </ons-list>
-                <ons-carousel fullscreen swipeable direction="vertical" auto-scroll overscrollable item-height='220px' id="carousel">
-                    <ons-carousel-item >
-                        <ons-list>
-                            <ons-row>
-                                <img src="/pix/m1_cover.jpg" class="novel" height="200px">
-                                <ons-col>
-                                    <H1>   Book_1_name</H1>
-                                    <p>port : --------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-                                </ons-col>
-                            </ons-row>
-                        </ons-list>
-                      </ons-carousel-item>
-                      <ons-carousel-item>
-                        <ons-list>
-                            <ons-row>
-                                <img src="/pix/m2_cover.jpg" class="novel" height="200px">
-                                <ons-col>
-                                    <H1>   Book_2_name</H1>
-                                    <p>port : --------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-                                </ons-col>
-                            </ons-row>
-                        </ons-list>
-                      </ons-carousel-item>
-                      <ons-carousel-item>
-                        <ons-list>
-                            <ons-row>
-                                <img src="/pix/m3_cover.jpg" class="comic" height="200px">
-                                <ons-col>
-                                    <H1>   Book_3_name</H1>
-                                    <p>port : --------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-                                </ons-col>
-                            </ons-row>
-                        </ons-list>
-                      </ons-carousel-item>
-                      <ons-carousel-item >
-                        <ons-list>
-                            <ons-row>
-                                <img src="/pix/m1_cover.jpg" class="novel" height="200px">
-                                <ons-col>
-                                    <H1>   Book_1_name</H1>
-                                    <p>port : --------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-                                </ons-col>
-                            </ons-row>
-                        </ons-list>
-                      </ons-carousel-item>
-                      <ons-carousel-item>
-                        <ons-list>
-                            <ons-row>
-                                <img src="/pix/m2_cover.jpg" class="novel" height="200px">
-                                <ons-col>
-                                    <H1>   Book_2_name</H1>
-                                    <p>port : --------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-                                </ons-col>
-                            </ons-row>
-                        </ons-list>
-                      </ons-carousel-item>
+                <ons-carousel fullscreen swipeable direction="vertical" auto-scroll overscrollable  id="carousel">
+                    <div id="search" style="height: 220px; "></div>
                   </ons-carousel>
         </ons-page>
     </template>
