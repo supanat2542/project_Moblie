@@ -57,7 +57,7 @@ db.collection("book").where("ratting", ">", 9)
   .onSnapshot(function (querySnapshot) {
     $("#rec").html('');
     querySnapshot.forEach(function (doc) {
-      $("#rec").append('<ons-carousel-item > <img onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
+      $("#rec").append('<ons-carousel-item class="mySlides" > <img onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
     });
   });
 function getSearch() {

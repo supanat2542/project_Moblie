@@ -1,16 +1,18 @@
-.novel{
+.novel {
     border-style: solid;
     border-width: 5px;
     border-color: rgb(250, 50, 50);
     border-radius: 20px;
 }
-.comic{
+
+.comic {
     border-style: solid;
     border-width: 5px;
     border-color: orange;
     border-radius: 20px;
 }
-.profile{
+
+.profile {
     width: 50px;
     height: 50px;
     border-style: solid;
@@ -18,7 +20,8 @@
     border-color: red;
     border-radius: 100px;
 }
-.logout{
+
+.logout {
     border-style: solid;
     border-width: 5px;
     border-color: red;
@@ -26,7 +29,8 @@
     color: white;
     border-radius: 10px;
 }
-.read{
+
+.read {
     border-style: solid;
     border-width: 5px;
     border-color: blue;
@@ -36,7 +40,31 @@
     width: 100px;
 }
 
-#coverc{
+#coverc {
     width: 130px;
     height: 210px;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
 }
