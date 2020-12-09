@@ -16,6 +16,8 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
+
+
 function saveData() {
   db.collection("post").add({
     name: $("#namePost").val()
@@ -32,7 +34,6 @@ db.collection("post")
   .onSnapshot(function (querySnapshot) {
     $("#nm").html('');
     querySnapshot.forEach(function (doc) {
-      // console.log(doc.data().name);
       $("#nm").append('<div>' + doc.data().name + '</div>')
     });
   });
@@ -41,16 +42,14 @@ db.collection("book").where("type", "==", "comic")
   .onSnapshot(function (querySnapshot) {
     $("#nov").html('');
     querySnapshot.forEach(function (doc) {
-      // console.log(doc.data().cover);
-      $("#nov").append('<ons-carousel-item > <img  src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
+      $("#nov").append('<ons-carousel-item > <img onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
     });
   });
 db.collection("book").where("type", "==", "novel")
   .onSnapshot(function (querySnapshot) {
     $("#nol").html('');
     querySnapshot.forEach(function (doc) {
-      // console.log(doc.data().name);
-      $("#nol").append('<ons-carousel-item > <img src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
+      $("#nol").append('<ons-carousel-item > <img onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
     });
   });
 
@@ -58,8 +57,7 @@ db.collection("book").where("ratting", ">", 9)
   .onSnapshot(function (querySnapshot) {
     $("#rec").html('');
     querySnapshot.forEach(function (doc) {
-      // console.log(doc.data().cover);
-      $("#rec").append('<ons-carousel-item > <img src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
+      $("#rec").append('<ons-carousel-item > <img onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px" width="130px"></ons-carousel-item>')
     });
   });
 function getSearch() {
@@ -68,8 +66,7 @@ function getSearch() {
       $("#search").html('');
       console.log($("#searchBook").val());
       querySnapshot.forEach(function (doc) {
-        console.log(doc.data().cover);
-        $("#search").append('<ons-carousel-item ><ons-list><ons-row><img src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px .width: 130px;"><ons-col><H1>' + doc.data().name + '</H1><p>port : --------------------------------------------------------------------------------------------------------------------------------------------------------------</p></ons-col></ons-row></ons-list></ons-carousel-item>')
+        $("#search").append('<ons-carousel-item ><ons-list><ons-row><img onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px .width: 130px;"><ons-col><H1>' + doc.data().name + '</H1><p>port : <p  style="font-size: 15px;">port :  ' + doc.data().post + ' </p></p></ons-col></ons-row></ons-list></ons-carousel-item>')
       });
     });
 }
@@ -78,15 +75,8 @@ let arr = null;
 db.collection("user").where("user", "==", "kan")
   .onSnapshot(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
-      // console.log(doc.data().book);
-      // console.log(doc.data().book.length);
       arr = doc.data().book;
-      // var i;
-      // for (i = 0; i < doc.data().book.length; i++) {
-      //   getBook(doc.data().book[i])
-      // }
     })
-    // console.log(arr);
     getBook(arr)
   });
 
@@ -98,25 +88,82 @@ function getBook(boo) {
       .onSnapshot(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
           console.log(doc.data().name);
-          $("#libary").append('<ons-carousel-item ><ons-list><ons-row><img  onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px ,width: 130px;"><ons-col><H1>' + doc.data().name + '</H1><p>port : --------------------------------------------------------------------------------------------------------------------------------------------------------------</p></ons-col></ons-row></ons-list></ons-carousel-item>')
+          $("#libary").append('<ons-carousel-item ><ons-list><ons-row><img  onclick="clickBook(`' + doc.data().name + '`,`' + doc.data().type + '`)" src="' + doc.data().cover + '" class="' + doc.data().type + '" height="200px ,width: 130px;"><ons-col><H1>' + doc.data().name + '</H1><p  style="font-size: 15px;">port :  ' + doc.data().post + ' </p></ons-col></ons-row></ons-list></ons-carousel-item>')
         });
       });
   }
 }
 
-function clickBook(){
-    document.querySelector('#myNavigator').pushPage('/detail/Novelp.html');
-    getRead(arguments[0])
-  
+function clickBook() {
+  document.querySelector('#myNavigator').pushPage('/detail/Novelp.html');
+  getRead(arguments[0])
 }
 
-function getRead(){
+function getRead() {
+  $("#readc").html('');
   db.collection("book").where("name", "==", arguments[0])
-
-  .onSnapshot(function (querySnapshot) {
-    querySnapshot.forEach(function (doc) {
-      console.log(doc.data().cover);
-      $("#readc").append('<ons-row><ons-row><h1>'+doc.data().name+'</h1></ons-row><img src="'+doc.data().cover+'" class="'+doc.data().type+'" height="300px"> </ons-row> <ons-row>  <div class="gerne"></div><ons-col><ons-row><ons-row>Author</ons-row><ons-row>'+" "+doc.data().author+'</ons-row></ons-row></ons-col> </ons-row><ons-row>Genre</ons-row><h3>Plot Summary</h3></ons-row><ons-row><p>'+doc.data().post+'</p></ons-row><div class="read">  read  </div>')
+ 
+    .onSnapshot(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        $("#readc").append('<ons-row><ons-row><h1>' + doc.data().name + '</h1></ons-row><img src="' + doc.data().cover + '" class="' + doc.data().type + '" height="300px"> </ons-row> <ons-row>  <div class="gerne"></div><ons-col><ons-row><ons-row>Author</ons-row><ons-row>' + " " + doc.data().author + '</ons-row></ons-row></ons-col> </ons-row><h3>Plot Summary</h3></ons-row><ons-row>>' + doc.data().post + '</p></ons-row></div><ons-button onclick="clickRead(`' + doc.data().name + '`,`' + doc.data().type + '`)">Read</ons-button>')
+      });
     });
+}
+
+function clickRead() {
+  document.querySelector('#myNavigator').pushPage('/detail/Comicp.html');
+  getPosts(arguments[0])
+}
+
+function getPosts() {
+  $("#posts").html('');
+  db.collection("book").where("name", "==", arguments[0])
+    .onSnapshot(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        $("#posts").append('<ons-row><ons-row><h1>' + doc.data().name + '</h1></ons-row><img src="' + doc.data().cover + '" class="' + doc.data().type + '" height="300px"><ons-row></ons-row> </ons-row><div id="getPage"></div>')
+        getPage(doc.data().name,doc.data().pix)
+      });
+    });
+}
+function getPage(){
+  $("#getPage").html('');
+  for (let i = 0; i < arguments[1].length; i++) {
+    db.collection("book").where("name", "==",arguments[0])
+      .onSnapshot(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          console.log(doc.data().name);
+          $("#getPage").append('<ons-row><ons-row></ons-row><img src="' + doc.data().pix[i] + '" height="300px"> </ons-row><ons-row><h3>Page : ' + (i+1) + '/' + doc.data().pix.length + '</h3></ons-row>')
+        });
+      });
+  }
+
+
+
+}
+
+function login() {
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithRedirect(provider);
+
+  firebase.auth().getRedirectResult().then(function (result) {
+    if (result.credential) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // ...
+    }
+    // The signed-in user info.
+    var user = result.user;
+  }).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
   });
+
 }
