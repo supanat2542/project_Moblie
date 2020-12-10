@@ -45,26 +45,45 @@
     height: 210px;
 }
 
-@-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
+.pad {
+    padding: 15px;
+    margin-top: 10px;
+    background-color:DodgerBlue;
+    color: white;
+    font-size: large;
+}
+.headd{
+    background-color:DodgerBlue;
+    margin-bottom: 10px;
+    color: white;
+}
+.headd1{
+    background-color:DodgerBlue;
+    color: white;
 }
 
-@keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
+.pad20 {
+    padding: 20px;
+    
 }
 
-@media only screen and (max-width: 300px) {
-    .text {
-        font-size: 11px
-    }
+.team {
+    background-color: rgb(8, 0, 53);
 }
+/* 
+.dark-mode {
+    background-color: white;
+    color: black;
+} */
+
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .text_center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

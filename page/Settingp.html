@@ -1,0 +1,37 @@
+<ons-page id="SettingPage">
+    <ons-navigator swipeable id="myNavigator-Setting" page="Settingp.html"></ons-navigator>
+    <template id="Settingp.html">
+        <ons-page>
+            <ons-list>
+                <ons-list-header>Profile</ons-list-header>
+                <ons-list-item>
+                  <div class="left">
+                    <img src="/pix/m1_cover.jpg" class="novel" height="50px">
+                  </div>
+                  <div class="center">
+                    <span class="list-item__title">Supanat</span>
+                  </div>
+                </ons-list-item>
+
+                <ons-list-header>Darkmode</ons-list-header>
+                <ons-list-item>
+                  <div class="center">
+                    Darkmode
+                  </div>
+                  <div class="right">
+                    <ons-switch onclick="myFunction()"></ons-switch>
+
+                  </div>
+                </ons-list-item>
+              </ons-list>
+        <div style="text-align: center; margin-top: 30px">
+          <p>
+            <ons-input id="namePost" modifier="underbar" placeholder="Name" ></ons-input>
+          </p>
+          <p style="margin-top: 30px;">
+            <ons-button type="submit" onclick="saveData()">Enter</ons-button>
+          </p>
+        </div>
+        </ons-page>
+    </template>
+</ons-page>

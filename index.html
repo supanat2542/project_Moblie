@@ -2,52 +2,70 @@
 <html>
 
 <head>
+    <!-- Required meta tags -->
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="apple-mobile-web-app-title" content="Hello Firebase">
+    <link rel="apple-touch-icon" href="pix/icon192x192.jpg">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="css/home.css">
-
+    <link rel="stylesheet" href="manifest.json">
 </head>
 
 <body>
     <ons-navigator id="myNavigator" page="index.html"></ons-navigator>
     <template id="index.html">
     <ons-page>
-      <ons-toolbar fixed-style>
-        <div class="center">E-bookbrary</div>
+      <ons-toolbar fixed-style class="team">
+        <div class="center" style="font-size: 20px;color:white;">Book Brary</div>
       </ons-toolbar>
 
       <ons-tabbar swipeable position="bottom">
-        <ons-tab page="page/homepage.html" label="Home" icon="md-home" active>
+        <ons-tab page="page/Homep.html" label="Home" icon="md-home" active class="team">
         </ons-tab>
-        <ons-tab page="page/search.html" label="Search" icon="md-search">
+        <ons-tab page="page/Searchp.html" label="Search" icon="md-search" class="team">
         </ons-tab>
-        <ons-tab page="page/shelf.html" label="Shelf" icon="md-book">
+        <ons-tab page="page/Librayp.html" label="Libray" icon="md-book" class="team">
         </ons-tab>
-        <ons-tab page="page/weekly.html" label="Weekly" icon="md-calendar">
+        <ons-tab page="page/Weeklyp.html" label="Weekly" icon="md-calendar" class="team">
         </ons-tab>
-
-        <ons-tab page="page/Settingp.html" label="Setting" icon="md-account">
+        <ons-tab page="page/Settingp.html" label="Setting" icon="md-account" class="team">
+        </ons-tab>
+        <!-- <ons-tab page="page/login.html" label="login" icon="md-account">
+        </ons-tab> -->
       </ons-tabbar>
 
     </ons-page>
   </template>
-    <!-- firebase -->
+    <!-- <script src="js/app.js"></script> -->
+    <!-- filebase -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <!-- <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script> -->
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-    <script src="js/firebase.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/login.js"></script>
 
+    <script src="/js/filebase.js"></script>
+    <script src="/service-worker.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((reg) => {});
+            });
+        }
+    </script>
 
 </body>
 

@@ -1,0 +1,17 @@
+<ons-page id="SearchPage">
+    <ons-navigator swipeable id="myNavigator-Search" page="Searchp.html"></ons-navigator>
+    <template id="Searchp.html">
+        <ons-page>
+            <ons-list>
+                    <p style="text-align: center; margin-top: 10px;">
+                      <ons-search-input id="searchBook" placeholder="Search" onkeydown="getSearch()"></ons-search-input>
+                      <!-- <ons-button  class="butt">Search</ons-button> -->
+                    </p>
+            </ons-list>
+                <ons-carousel fullscreen swipeable direction="vertical" auto-scroll overscrollable  id="carousel">
+                    <div id="search" style="height: 220px; "></div>
+                  </ons-carousel>
+        </ons-page>
+        
+    </template>
+</ons-page>
